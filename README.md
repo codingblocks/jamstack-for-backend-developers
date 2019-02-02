@@ -4,6 +4,8 @@ Helping developers find coding conferences since 2019.
 
 Check out the preview on Netlify: https://cocky-nightingale-7abbdc.netlify.com/
 
+## Development
+
 Running locally
 
 ```
@@ -15,3 +17,7 @@ Publishing
 ```
 gatsby build
 ```
+
+## Adding a new conference
+
+Add a new conference by adding a new json file in the ./src/components/data/conferences folder. Take a look at one of the other files in there to see how it's structured.

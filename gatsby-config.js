@@ -29,6 +29,14 @@ module.exports = {
         ]
       }
     },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        path: `${__dirname}/src/data/conferences`,
+        name: 'conferences'
+      }
+    },
+    `gatsby-transformer-json`,
     'gatsby-plugin-offline',
     'gatsby-plugin-react-helmet',
     {

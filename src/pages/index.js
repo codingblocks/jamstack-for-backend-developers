@@ -6,6 +6,8 @@ import Layout from '../components/layout'
 
 const IndexPage = ({ data }) => {
   const posts = data.allMarkdownRemark.edges.filter(post => !post.node.frontmatter.hidden && post.node.frontmatter.contentType === 'blog')
+  const conferences = data.allConferencesJson.edges.map(n => n.node);
+
   return (
     <Layout>
       <Container>
@@ -19,6 +21,15 @@ const IndexPage = ({ data }) => {
           </Card>
         ))}
       </Container>
+      <Container>
+        {conferences.map(c => (
+          <div key={c.conferenceTitle}>
+            <p><a href={c.url}>{c.conferenceTitle}</a></p>
+            <p>{c.location}</p>
+            <p>{c.startDate}</p>
+          </div>
+        ))}
+      </Container>
     </Layout>
   )
 }
@@ -27,7 +38,7 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query IndexQuery {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+    allMarkdownRemark(sort: {order: DESC, fields: [frontmatter___date]}) {
       edges {
         node {
           excerpt(pruneLength: 400)
@@ -42,5 +53,16 @@ export const pageQuery = graphql`
         }
       }
     }
+    allConferencesJson {
+      edges {
+        node {
+          conferenceTitle
+          location
+          url
+          startDate
+        }
+      }
+    }
   }
+
 `
