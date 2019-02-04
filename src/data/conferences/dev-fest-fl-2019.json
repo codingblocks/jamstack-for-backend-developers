@@ -1,6 +1,7 @@
 {
-    "conferenceTitle": "Dev Fest Florida",
-    "location": "Orlando, FL",
-    "url": "https://devfestflorida.org",
-    "startDate": "2019-01-19T00:00:00.000Z"
+  "path": "/dev-fest-fl",
+  "title": "Dev Fest Florida",
+  "location": "Orlando, FL",
+  "url": "https://devfestflorida.org",
+  "startDate": "2019-01-19T00:00:00.000Z"
 }

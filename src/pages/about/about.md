@@ -1,8 +1,7 @@
 ---
 contentType: about
 path: /about
-title: About Me
+title: About This Site
 ---
-This is a placeholder page.
 
-Be sure to update your `.md` files in `src/pages`, or use [admin](/admin).
+This is a simple website designed to show off the power of the <a href="https://jamstack.org/">JAMstack</a>!
