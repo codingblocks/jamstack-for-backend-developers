@@ -42,6 +42,14 @@ module.exports = {
         includePaths: [`${__dirname}/node_modules`, `${__dirname}/src/`],
         precision: 8
       }
+    },
+    {
+      resolve: "gatsby-source-pg",
+      options: {
+        connectionString:
+          "postgres://hxfyvqje:KarKia9HEZRzlRmZ00qeRKNJwxSGIpZw@baasu.db.elephantsql.com:5432/hxfyvqje",
+        schema: "public"
+      }
     }
   ]
 };

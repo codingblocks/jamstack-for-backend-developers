@@ -37,10 +37,12 @@ exports.createPages = ({ actions, graphql }) => {
           }
         }
       }
-      allConferencesJson {
-        edges {
-          node {
-            path
+      postgres {
+        allConferencesJson: allConferences {
+          edges {
+            node {
+              path
+            }
           }
         }
       }
@@ -50,6 +52,9 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors);
     }
     generateContentPages(actions, result.data.allMarkdownRemark.edges);
-    generateConferencePages(actions, result.data.allConferencesJson.edges);
+    generateConferencePages(
+      actions,
+      result.data.postgres.allConferencesJson.edges
+    );
   });
 };
