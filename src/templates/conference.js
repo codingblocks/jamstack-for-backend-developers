@@ -1,25 +1,28 @@
-import React from "react";
-import { Container } from "reactstrap";
-import Helmet from "react-helmet";
-import { graphql } from "gatsby";
-import Layout from "../components/layout";
+import React from 'react'
+import { Container } from 'reactstrap'
+import Helmet from 'react-helmet'
+import { graphql } from 'gatsby'
+import Layout from '../components/layout'
+import styles from './conference.module.css'
 
-export default function Template({ data }) {
-  const conference = data.postgres.allConferences.edges[0].node;
+export default function Template ({ data }) {
+  const conference = data.postgres.allConferences.edges[0].node
 
   return (
     <Layout>
       <div>
         <Helmet title={`${conference.title}`} />
         <Container>
-          <h1 className="display-3">{conference.title}</h1>
-          <p>{conference.location}</p>
-          <p>{conference.startDate}</p>
+          <h3>{conference.title}</h3>
+          <div>
+            <span>{conference.location}</span>
+            <span class={styles.date}>{conference.startDate}</span>
+          </div>
           <a href={conference.url}>{conference.url}</a>
         </Container>
       </div>
     </Layout>
-  );
+  )
 }
 
 export const query = graphql`
@@ -38,4 +41,4 @@ export const query = graphql`
       }
     }
   }
-`;
+`

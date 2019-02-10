@@ -6,6 +6,15 @@ Check out the preview on Netlify: https://cocky-nightingale-7abbdc.netlify.com/
 
 ## Development
 
+This site requires a connection to postgres sql, and the schema has not been checked in anywhere yet. Shoot us a message if you are interested in getting this running and we can help!
+
+
+### Environment Settings
+
+* CONFERENCES_DB_CONNECTIONSTRING (required)
+* CONFERENCES_DISQUS_KEY (optional)
+
+
 Running locally
 
 ```
