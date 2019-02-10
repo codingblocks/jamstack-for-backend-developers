@@ -18,7 +18,7 @@ const IndexPage = ({ data }) => {
       post.node.frontmatter.contentType === "blog"
   );
 
-  const conferences = data.postgres.allConferencesJson.edges.map(n => n.node);
+  const conferences = data.postgres.allConferences.edges.map(n => n.node);
 
   return (
     <Layout>
@@ -72,7 +72,7 @@ export const pageQuery = graphql`
       }
     }
     postgres {
-      allConferencesJson: allConferences {
+      allConferences {
         edges {
           node {
             title

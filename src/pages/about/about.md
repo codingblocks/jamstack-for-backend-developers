@@ -1,7 +1,9 @@
 ---
 contentType: about
 path: /about
-title: About This Site
+title: Thanks!
 ---
 
-This is a simple website designed to show off the power of the <a href="https://jamstack.org/">JAMstack</a>!
+Thanks for letting me prattle on about JAMstack and Gatsby!
+
+_PS: back-end is the best end!_

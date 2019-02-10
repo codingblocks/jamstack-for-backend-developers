@@ -1,13 +1,18 @@
+const connectionString = process.env.CONFERENCES_DB_CONNECTIONSTRING;
+const disqusKey = process.env.CONFERENCES_DISQUS_KEY || "gatsby-starter-blog";
+
 module.exports = {
   siteMetadata: {
     title: "Developer Conferences",
-    author: "konsumer",
-    authorLink: "https://github.com/konsumer",
-    disqus: "gatsby-starter-blog" // put your disqus ID here
+    author: "Joe Zack",
+    authorLink: "https://github.com/thejoezack",
+    disqus: disqusKey
   },
   plugins: [
+    // Source Plugins
     {
       resolve: "gatsby-source-filesystem",
+      name: "Basic Pages",
       options: {
         path: `${__dirname}/src/pages`,
         name: "pages"
@@ -15,25 +20,30 @@ module.exports = {
     },
     {
       resolve: "gatsby-source-filesystem",
+      name: "Examples",
       options: {
         path: `${__dirname}/src/examples`,
         name: "examples"
       }
     },
     {
+      resolve: "gatsby-source-pg",
+      options: {
+        connectionString: connectionString,
+        schema: "public"
+      }
+    },
+
+    // Transform Plugins
+    {
       resolve: "gatsby-transformer-remark",
       options: {
         plugins: ["gatsby-remark-prismjs", "gatsby-remark-copy-linked-files"]
       }
     },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        path: `${__dirname}/src/data/conferences`,
-        name: "conferences"
-      }
-    },
-    `gatsby-transformer-json`,
+    "gatsby-transformer-json",
+
+    // Miscellaneous plugins
     "gatsby-plugin-offline",
     "gatsby-plugin-react-helmet",
     {
@@ -41,14 +51,6 @@ module.exports = {
       options: {
         includePaths: [`${__dirname}/node_modules`, `${__dirname}/src/`],
         precision: 8
-      }
-    },
-    {
-      resolve: "gatsby-source-pg",
-      options: {
-        connectionString:
-          "postgres://hxfyvqje:KarKia9HEZRzlRmZ00qeRKNJwxSGIpZw@baasu.db.elephantsql.com:5432/hxfyvqje",
-        schema: "public"
       }
     }
   ]

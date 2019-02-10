@@ -5,7 +5,7 @@ import { graphql } from "gatsby";
 import Layout from "../components/layout";
 
 export default function Template({ data }) {
-  const conference = data.postgres.allConferencesJson.edges[0].node;
+  const conference = data.postgres.allConferences.edges[0].node;
 
   return (
     <Layout>
@@ -25,7 +25,7 @@ export default function Template({ data }) {
 export const query = graphql`
   query ConferencePage($path: String!) {
     postgres {
-      allConferencesJson: allConferences(condition: { path: $path }) {
+      allConferences(condition: { path: $path }) {
         edges {
           node {
             path

@@ -38,7 +38,7 @@ exports.createPages = ({ actions, graphql }) => {
         }
       }
       postgres {
-        allConferencesJson: allConferences {
+        allConferences {
           edges {
             node {
               path
@@ -52,9 +52,6 @@ exports.createPages = ({ actions, graphql }) => {
       return Promise.reject(result.errors);
     }
     generateContentPages(actions, result.data.allMarkdownRemark.edges);
-    generateConferencePages(
-      actions,
-      result.data.postgres.allConferencesJson.edges
-    );
+    generateConferencePages(actions, result.data.postgres.allConferences.edges);
   });
 };
