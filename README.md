@@ -1,13 +1,21 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/05de16b8-0066-4759-a155-a2f2966ca9bb/deploy-status)](https://app.netlify.com/sites/cocky-nightingale-7abbdc/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/72731c13-3b8e-4ea4-87a1-5b53c1ac05ed/deploy-status)](https://app.netlify.com/sites/condescending-gates-bec8ba/deploys)
 
-Helping developers find coding conferences since 2019.
+# JAMstack for Back-End Developers
 
-Check out the preview on Netlify: https://cocky-nightingale-7abbdc.netlify.com/
+JAMstack is a set of best practices for building decoupled front-ends with a heavy emphasis on build-time rendering.
 
-## Development
+It’s quickly gaining popularity because the managed services and front-end tooling have reached a tipping point where it’s now easy to make great static sites at build time.
 
-This site requires a connection to postgres sql, and the schema has not been checked in anywhere yet. Shoot us a message if you are interested in getting this running and we can help!
+Because of this, the responsibilities of Front-End and Back-End developers are changing. Check out the slides to see where I think things are going.
 
+* [Download the presentation] (https://github.com/codingblocks/jamstack-for-backend-devs/blob/master/jamstack.pptx)
+* Demo site: [findTech.events](https://findTech.events)
+
+
+
+## Working with the code
+
+This site requires a connection to postgres sql, and the schema has not been checked in anywhere yet. Shoot us a message if you are interested in actually running this code and we will help you set things up!
 
 ### Environment Settings
 
@@ -26,7 +34,3 @@ Publishing
 ```
 gatsby build
 ```
-
-## Adding a new conference
-
-Add a new conference by adding a new json file in the ./src/components/data/conferences folder. Take a look at one of the other files in there to see how it's structured.
