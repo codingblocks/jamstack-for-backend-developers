@@ -26,15 +26,29 @@ export default function Template ({ data }) {
 }
 
 export const query = graphql`
-  query ConferencePage($path: String!) {
+  query IndexQuery {
+    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
+      edges {
+        node {
+          excerpt(pruneLength: 400)
+          id
+          frontmatter {
+            title
+            contentType
+            date(formatString: "MMMM DD, YYYY")
+            path
+            hidden
+          }
+        }
+      }
+    }
     postgres {
-      allConferences(condition: { path: $path }) {
+      allConferences(orderBy: STARTDATE_ASC, condition: { statusid: 2 }) {
         edges {
           node {
-            path
             title
+            path
             location
-            url
             startDate: startdate
           }
         }

@@ -51,7 +51,7 @@ const IndexPage = ({ data }) => {
 export default IndexPage
 
 export const pageQuery = graphql`
-  query IndexQuery {
+  query {
     allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date] }) {
       edges {
         node {
@@ -68,7 +68,7 @@ export const pageQuery = graphql`
       }
     }
     postgres {
-      allConferences {
+      allConferences(orderBy: STARTDATE_ASC, condition: { statusid: 2 }) {
         edges {
           node {
             title
