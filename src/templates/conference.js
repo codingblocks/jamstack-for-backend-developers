@@ -1,13 +1,11 @@
 import React from 'react'
 import { Container } from 'reactstrap'
 import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import styles from './conference.module.css'
 
-export default function Template ({ data }) {
-  const conference = data.postgres.allConferences.edges[0].node
-
+export default function Template ({ pageContext }) {
+  const conference = pageContext.conference
   return (
     <Layout>
       <div>
@@ -24,20 +22,3 @@ export default function Template ({ data }) {
     </Layout>
   )
 }
-
-export const query = graphql`
-  query ConferencePage($path: String!) {
-    postgres {
-      allConferences(condition: { statusid: 2, path: $path }) {
-        edges {
-          node {
-            title
-            path
-            location
-            startDate: startdate
-          }
-        }
-      }
-    }
-  }
-`

@@ -19,7 +19,7 @@ const generateConferencePages = (actions, markdownData) => {
     createPage({
       path: node.path,
       component: path.resolve(`src/templates/conference.js`),
-      context: {} // additional data can be passed via context
+      context: { conference: node } // additional data can be passed via context
     })
   })
 }
@@ -41,7 +41,11 @@ exports.createPages = ({ actions, graphql }) => {
         allConferences {
           edges {
             node {
+              title
               path
+              location
+              startDate: startdate
+              statusId: statusid
             }
           }
         }
