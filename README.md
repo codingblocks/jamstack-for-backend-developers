@@ -8,10 +8,8 @@ It’s quickly gaining popularity because the managed services and front-end too
 
 Because of this, the responsibilities of Front-End and Back-End developers are changing. Check out the slides to see where I think things are going.
 
-* [Download the presentation] (https://github.com/codingblocks/jamstack-for-backend-devs/blob/master/jamstack.pptx)
-* Demo site: [findTech.events](https://findTech.events)
-
-
+- [Download the presentation](https://github.com/codingblocks/jamstack-for-backend-devs/blob/master/jamstack.pptx)
+- Demo site: [findTech.events](https://findTech.events)
 
 ## Working with the code
 
@@ -19,9 +17,8 @@ This site requires a connection to postgres sql, and the schema has not been che
 
 ### Environment Settings
 
-* CONFERENCES_DB_CONNECTIONSTRING (required)
-* CONFERENCES_DISQUS_KEY (optional)
-
+- CONFERENCES_DB_CONNECTIONSTRING (required)
+- CONFERENCES_DISQUS_KEY (optional)
 
 Running locally
 
@@ -34,3 +31,17 @@ Publishing
 ```
 gatsby build
 ```
+
+## Resources we like:
+
+[JAMstack.org](https://jamstack.org/)
+Home page for JAMstack, tons of [https://jamstack.org/resources/](https://jamstack.org/resources/)
+
+[StaticGen](https://www.staticgen.com/)
+Great collection of static site generators. Browse my technologies and license.
+
+[JAMstack Radio](https://www.heavybit.com/library/podcasts/jamstack-radio/)
+Podcast focused around JAMstack
+
+[Coding Blocks on JAMstack](https://www.codingblocks.net/podcast/jamstack-with-j-a-m/)
+Great Podcast _wink_ feature discussion and debate over what JAMstack is, and what it means for the future
