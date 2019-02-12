@@ -14,7 +14,7 @@ export default function Template ({ pageContext }) {
           <h3>{conference.title}</h3>
           <div>
             <span>{conference.location}</span>
-            <span class={styles.date}>{conference.startDate}</span>
+            <span className={styles.date}>{conference.startDate}</span>
           </div>
           <a href={conference.url}>{conference.url}</a>
         </Container>
