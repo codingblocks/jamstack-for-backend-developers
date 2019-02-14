@@ -30,14 +30,23 @@ const IndexPage = ({ data }) => {
       <Container className={styles.conferenceList}>
         <Row>
           {conferences.map(c => (
-            <div className='col-md-4' key={c.path}>
+            <div className='col-md-6' key={c.slug}>
               <div className={styles.conference}>
                 <h4>
-                  <Link to={c.path}>{c.title}</Link>
+                  <Link to={`/conference/${c.slug}`}>{c.title}</Link>
                 </h4>
                 <div>
                   <span>{c.location}</span>
-                  <span className={styles.date}>{c.startDate}</span>
+                  <span className={styles.right}>{c.startDate}</span>
+                </div>
+                <div hidden={!c.cfpDeadline}>
+                  <span hidden={!c.cfpLink}>
+                    <a href={c.cfpLink}>CFP Open Till {c.cfpDeadline}</a>
+                  </span>
+                  <span hidden={c.cfpLink}>CFP Open Till {c.cfpDeadline}</span>
+                </div>
+                <div hidden={!c.twitter}>
+                  <a href={`https://twitter.com/${c.twitter}`}>{c.twitter}</a>
                 </div>
               </div>
             </div>
@@ -68,13 +77,16 @@ export const pageQuery = graphql`
       }
     }
     postgres {
-      allConferences(orderBy: STARTDATE_ASC, condition: { statusid: 2 }) {
+      allConferences(orderBy: STARTDATE_ASC, condition: { status: "ACTIVE" }) {
         edges {
           node {
             title
-            path
+            slug
             location
             startDate: startdate
+            twitter
+            cfpDeadline: cfpdeadline
+            cfpLink: cfplink
           }
         }
       }

@@ -17,7 +17,7 @@ const generateConferencePages = (actions, markdownData) => {
   const { createPage } = actions
   markdownData.forEach(({ node }) => {
     createPage({
-      path: node.path,
+      path: `/conference/${node.slug}`,
       component: path.resolve(`src/templates/conference.js`),
       context: { conference: node } // additional data can be passed via context
     })
@@ -42,10 +42,13 @@ exports.createPages = ({ actions, graphql }) => {
           edges {
             node {
               title
-              path
+              slug
               location
               startDate: startdate
-              statusId: statusid
+              status
+              twitter
+              cfpDeadline: cfpdeadline
+              cfpLink: cfplink
             }
           }
         }

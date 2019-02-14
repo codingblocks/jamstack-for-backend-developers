@@ -5,18 +5,27 @@ import Layout from '../components/layout'
 import styles from './conference.module.css'
 
 export default function Template ({ pageContext }) {
-  const conference = pageContext.conference
+  const c = pageContext.conference
   return (
     <Layout>
       <div>
-        <Helmet title={`${conference.title}`} />
+        <Helmet title={`${c.title}`} />
         <Container>
-          <h3>{conference.title}</h3>
+          <h3>{c.title}</h3>
+          <a href={c.url}>{c.url}</a>
           <div>
-            <span>{conference.location}</span>
-            <span className={styles.date}>{conference.startDate}</span>
+            <span>{c.location}</span>
+            <span className={styles.date}>{c.startDate}</span>
           </div>
-          <a href={conference.url}>{conference.url}</a>
+          <div hidden={!c.cfpDeadline}>
+            <span hidden={!c.cfpLink}>
+              <a href={c.cfpLink}>CFP Open Till {c.cfpDeadline}</a>
+            </span>
+            <span hidden={c.cfpLink}>CFP Open Till {c.cfpDeadline}</span>
+          </div>
+          <div hidden={!c.twitter}>
+            <a href={`https://twitter.com/${c.twitter}`}>{c.twitter}</a>
+          </div>
         </Container>
       </div>
     </Layout>
