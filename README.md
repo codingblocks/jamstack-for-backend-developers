@@ -1,5 +1,8 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/72731c13-3b8e-4ea4-87a1-5b53c1ac05ed/deploy-status)](https://app.netlify.com/sites/condescending-gates-bec8ba/deploys)
 
+Check out the video about this project:
+https://www.youtube.com/watch?v=Z2JK7SS82wE
+
 # JAMstack for Back-End Developers
 
 JAMstack is a set of best practices for building decoupled front-ends with a heavy emphasis on build-time rendering.
@@ -8,6 +11,7 @@ It’s quickly gaining popularity because the managed services and front-end too
 
 Because of this, the responsibilities of Front-End and Back-End developers are changing. Check out the slides to see where I think things are going.
 
+- [YouTube video of the presentation](https://www.youtube.com/watch?v=Z2JK7SS82wE)
 - [Download the presentation](https://github.com/codingblocks/jamstack-for-backend-devs/blob/master/jamstack.pptx)
 - Demo site: [findTech.events](https://findTech.events)
 
